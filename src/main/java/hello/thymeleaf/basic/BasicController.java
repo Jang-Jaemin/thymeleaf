@@ -82,6 +82,32 @@ public class BasicController {
         model.addAttribute("data","Spring!");
         return "basic/literal";
     }
+    @GetMapping("/operation")
+    public String operation(Model model){
+        model.addAttribute("nullData",null);
+        model.addAttribute("data", "Spring!");
+        return "basic/operation";
+    }
+
+    @GetMapping("/attribute") // =속성 값 설정
+    public String attribute(){
+        return "basic/attribute";
+    }
+
+    @GetMapping("/each") // 반복, 타임리프에서 반복은 'th:each'를 사용한다.
+    public String each(Model model){
+        addUsers(model);
+        return "basic/each";
+    }
+
+    private void addUsers(Model model){
+        List<User> list = new ArrayList<>();
+        list.add(new User("userA", 10));
+        list.add(new User("userB", 20));
+        list.add(new User("userC", 30));
+
+        model.addAttribute("users", list);
+    }
 
 
 
