@@ -109,10 +109,18 @@ public class BasicController {
         model.addAttribute("users", list);
     }
 
+    //반복
     @GetMapping ("/condition")
     public String condition(Model model){
         addUsers(model);
         return "basic/condition";
+    }
+
+    //주석
+    @GetMapping("/comments")
+    public String comments(Model model){
+        model.addAttribute("data", "Spring!");
+        return "basic/comments";
     }
 
 

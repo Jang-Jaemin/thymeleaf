@@ -1,0 +1,39 @@
+<!-- 주석 -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+<h1>예시</h1>
+<span th:text="${data}">html data</span>
+<h1>1. 표준 HTML 주석</h1>
+<!--
+<span th:text="${data}">html data</span>
+-->
+<h1>2. 타임리프 파서 주석</h1>
+<!--/* [[${data}]] */-->
+<!--/*-->
+<span th:text="${data}">html data</span>
+<!--*/-->
+<h1>3. 타임리프 프로토타입 주석</h1>
+<!--/*/
+<span th:text="${data}">html data</span>
+/*/--> </body> </html>
+
+
+
+<!--
+  1. 표준 HTML 주석
+  자바스크립트의표준 HTML 주석은타임리프가렌더링하지않고, 그대로남겨둔다.
+  2. 타임리프파서주석
+  타임리프파서주석은타임리프의진짜주석이다. 렌더링에서주석부분을제거한다.
+  3. 타임리프프로토타입주석
+  타임리프프로토타입은약간특이한데, HTML 주석에약간의구문을더했다.
+  HTML 파일을웹브라우저에서그대로열어보면 HTML 주석이기때문에이부분이웹브라우저가 렌더링하지않는다.
+  타임리프렌더링을거치면이부분이정상렌더링된다.
+  쉽게이야기해서 HTML 파일을그대로열어보면주석처리가되지만, 타임리프를렌더링한경우에만 보이는기능이다.
+-->
