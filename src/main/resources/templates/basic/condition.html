@@ -1,3 +1,14 @@
+<!--
+    조건부평가
+    타임리프의조건식 if, unless( if의반대)
+    if, unless
+    타임리프는해당조건이맞지않으면태그자체를렌더링하지않는다.
+    만약다음조건이false인경우<span>...<span> 부분자체가렌더링되지않고사라진다. <span th:text="'미성년자'" th:if="${user.age lt 20}"></span>
+
+    switch
+    *은만족하는조건이없을때사용하는디폴트이다.
+-->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
