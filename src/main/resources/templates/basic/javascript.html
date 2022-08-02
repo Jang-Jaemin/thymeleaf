@@ -1,0 +1,53 @@
+<!--
+  자바스크립트인라인
+    타임리프는자바스크립트에서타임리프를편리하게사용할수있는자바스크립트인라인기능을제공한다.
+    자바스크립트인라인기능은다음과같이적용하면된다.
+
+  예시: <script th:inline="javascript">
+-->
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+<!-- 자바스크립트 인라인 사용 전 -->
+<script>
+  var username = [[${user.username}]];
+  var age = [[${user.age}]];
+  //자바스크립트 내추럴 템플릿
+  var username2 = /*[[${user.username}]]*/ "test username";
+  //객체
+  var user = [[${user}]];
+</script>
+
+<!-- 자바스크립트 인라인 사용 후 -->
+<script th:inline="javascript">
+  var username = [[${user.username}]];
+  var age = [[${user.age}]];
+  //자바스크립트 내추럴 템플릿
+  var username2 = /*[[${user.username}]]*/ "test username";
+  //객체
+  var user = [[${user}]];
+</script>
+</body>
+</html>
+
+
+<!--
+  텍스트렌더링
+  var username = [[${user.username}]];
+  인라인 사용 전 var username = userA; 인라인 사용 후 var username = "userA";
+  인라인 사용 전 렌더링 결과를 보면 userA라는 변수 이름이 그대로 남아있다.
+  타임리프 입장에서는 정확하게 렌더링한것이지만 아마 개발자가 기대한것은 다음과같은 "userA"라는 문자일것이다.
+  결과적으로 userA가 변수명으로 사용되어서 자바스크립트 오류가 발생한다.
+
+  다음으로 나오는숫자 age의 경우에는"가 필요없기 때문에 정상 렌더링된다.
+  인라인 사용 후 렌더링 결과를 보면 문자 타입인경우"를 포함해준다.
+  추가로 자바스크립트에서 문제가 될 수 있는 문자가 포함되어 있으면 이스케이프 처리도해준다.  예) "   \"
+
+-->
