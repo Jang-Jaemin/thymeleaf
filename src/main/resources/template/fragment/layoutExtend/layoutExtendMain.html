@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html th:replace="~{template/layoutExtend/layoutFile :: layout(~{::title}, ~{::section})}"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>메인 페이지 타이틀</title>
+</head>
+
+<body>
+<section>
+    <p>메인 페이지 컨텐츠</p>
+    <div>메인 페이지 포함 내용</div>
+</section>
+
+</body>
+</html>
+
+<!--
+    layoutFile.html을 보면 기본 레이아웃을 가지고있는데,
+    <html>에th:fragment 속성이 정의되어있다.
+    이 레이아웃 파일을 기본으로 하고 여기에 필요한 내용을 전달해서 부분부분 변경하는것으로 이해하면된다.
+    layoutExtendMain.html는 현재페이지인데,
+    <html> 자체를th:replace를 사용해서 변경하는것을 확인할수있다.
+    결국 layoutFile.html에 필요한 내용을 전달하면서<html>
+    자체를 layoutFile.html로 변경한다
+-->

@@ -13,8 +13,15 @@ public class TemplataeController {
             return "template/fragment/fragmentMain";
     }
 
+    //템플릿 레이아웃 1
     @GetMapping("/layout")
     public String layout(){
         return "temple/layout/layoutMain";
+    }
+
+    //템플릿 레이아웃 2
+    @GetMapping("/layoutExtend")
+    public String layoutExtends(){
+        return "temple/layoutExtend/layoutExtendMain";
     }
 }
